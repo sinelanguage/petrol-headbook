@@ -22,7 +22,7 @@ export function SiteHeader({ session }: { session: SessionUser | null }) {
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/96 backdrop-blur-sm">
       <div className="mx-auto flex w-full max-w-[1680px] items-center justify-between gap-6 px-4 sm:px-6 lg:px-10">
         <div className="flex min-w-0 items-center gap-6">
-          <Link className="flex items-center gap-3 py-4" href="/">
+          <Link className="flex items-center gap-3 py-3" href="/">
             <div className="flex h-9 w-9 items-center justify-center rounded-md border border-zinc-300 bg-zinc-50 text-sm font-semibold text-zinc-950">
               {creatorProfile.logo}
             </div>
@@ -38,7 +38,7 @@ export function SiteHeader({ session }: { session: SessionUser | null }) {
 
               return (
                 <Link
-                  className={`border-b-2 px-3 py-5 text-sm font-medium transition-colors ${
+                  className={`border-b-2 px-3 py-4 text-sm font-medium transition-colors ${
                     active
                       ? "border-zinc-900 text-zinc-950"
                       : "border-transparent text-zinc-500 hover:text-zinc-900"
@@ -53,7 +53,7 @@ export function SiteHeader({ session }: { session: SessionUser | null }) {
           </nav>
         </div>
 
-        <div className="flex items-center gap-2 py-3">
+        <div className="flex items-center gap-2 py-2.5">
           {session ? (
             <>
               <div className="hidden border-r border-zinc-200 pr-4 text-right sm:block">

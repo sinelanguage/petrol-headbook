@@ -19,13 +19,13 @@ export default async function ShortPage({ params }: { params: Promise<{ slug: st
     notFound();
   }
 
-  const queue = shortFormContent.filter((entry) => entry.slug !== item.slug).slice(0, 3);
+  const queue = shortFormContent.filter((entry) => entry.slug !== item.slug).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-zinc-50">
       <SiteHeader session={session} />
-      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-4 py-8 sm:px-6 lg:px-10">
-        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_400px]">
+      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-4 py-5 sm:px-6 lg:px-10">
+        <section className="grid gap-5 xl:grid-cols-[minmax(0,1.1fr)_400px]">
           <Card>
             <CardHeader className="border-b border-zinc-200 pb-5">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -52,7 +52,7 @@ export default async function ShortPage({ params }: { params: Promise<{ slug: st
           <Card>
             <CardHeader>
               <CardTitle>Autoplay queue</CardTitle>
-              <CardDescription>Additional shorts make the route feel like a real feed instead of a dead-end page.</CardDescription>
+              <CardDescription>Four follow-on shorts keep the route feeling like a real feed instead of a dead-end page.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               {queue.map((entry) => (
@@ -62,7 +62,7 @@ export default async function ShortPage({ params }: { params: Promise<{ slug: st
           </Card>
         </section>
 
-        <section className="grid gap-6 xl:grid-cols-[440px_minmax(0,1fr)]">
+        <section className="grid gap-5 xl:grid-cols-[440px_minmax(0,1fr)]">
           <Card className="overflow-hidden bg-[#0b0f19]">
             <div className="mx-auto w-full max-w-sm p-6">
               <div className="rounded-[28px] border border-white/10 bg-black p-3">
@@ -73,7 +73,7 @@ export default async function ShortPage({ params }: { params: Promise<{ slug: st
             </div>
           </Card>
 
-          <div className="grid gap-6">
+          <div className="grid gap-5">
             <Card>
               <CardHeader>
                 <CardTitle>Why this page feels fuller</CardTitle>

@@ -19,14 +19,14 @@ export default async function VideoPage({ params }: { params: Promise<{ slug: st
     notFound();
   }
 
-  const relatedVideos = longFormContent.filter((entry) => entry.slug !== item.slug).slice(0, 2);
+  const relatedVideos = longFormContent.filter((entry) => entry.slug !== item.slug).slice(0, 4);
   const relatedPodcast = podcastEpisodes[0];
 
   return (
     <div className="min-h-screen bg-zinc-50">
       <SiteHeader session={session} />
-      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-4 py-8 sm:px-6 lg:px-10">
-        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.18fr)_380px]">
+      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-4 py-5 sm:px-6 lg:px-10">
+        <section className="grid gap-5 xl:grid-cols-[minmax(0,1.18fr)_380px]">
           <Card>
             <CardHeader className="border-b border-zinc-200 pb-5">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -58,7 +58,7 @@ export default async function VideoPage({ params }: { params: Promise<{ slug: st
           <Card>
             <CardHeader>
               <CardTitle>Next up</CardTitle>
-              <CardDescription>Populate the watch experience with multiple follow-on stories and cross-format handoff.</CardDescription>
+              <CardDescription>Populate the watch experience with four more films plus cross-format handoff.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               {relatedVideos.map((entry) => (
@@ -69,7 +69,7 @@ export default async function VideoPage({ params }: { params: Promise<{ slug: st
           </Card>
         </section>
 
-        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_380px]">
+        <section className="grid gap-5 xl:grid-cols-[minmax(0,1.2fr)_380px]">
           <Card className="overflow-hidden">
             <div className="aspect-video bg-black">
               <VideoPlayer src={item.streamUrl} />

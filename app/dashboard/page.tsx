@@ -16,7 +16,7 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-zinc-50">
       <SiteHeader session={session} />
-      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-4 py-8 sm:px-6 lg:px-10">
+      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-4 py-5 sm:px-6 lg:px-10">
         <Card>
           <CardHeader className="border-b border-zinc-200 pb-5">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -43,7 +43,7 @@ export default async function DashboardPage() {
             </div>
             <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
               <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Loaded batch</p>
-              <p className="mt-2 text-xl font-semibold text-zinc-950">6 active drops</p>
+                <p className="mt-2 text-xl font-semibold text-zinc-950">9 active drops</p>
               <p className="mt-2 text-sm leading-6 text-zinc-600">Enough seeded content to judge queue depth, board columns, and future archive pagination.</p>
             </div>
             <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">

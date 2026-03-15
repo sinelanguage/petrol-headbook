@@ -108,6 +108,39 @@ const defaultAssets: DraftAsset[] = [
     channel: "Short feed",
     artwork: "linear-gradient(135deg, #111827 0%, #9a3412 38%, #f97316 100%)",
   },
+  {
+    id: "asset-7",
+    title: "Huayra sunrise warmup",
+    format: "Short-form video",
+    description: "Approved as a preloaded queue item so the short-form route looks active the moment DDE lands on it.",
+    status: "Queued",
+    owner: "Pagani Lane",
+    eta: "Today · 20:10",
+    channel: "Short feed",
+    artwork: "linear-gradient(135deg, #111827 0%, #115e59 38%, #2dd4bf 100%)",
+  },
+  {
+    id: "asset-8",
+    title: "Factory radio #03 notes",
+    format: "Podcast",
+    description: "Transcript pass, show notes, and discussion prompt ready for the fuller audio library launch.",
+    status: "Published",
+    owner: "Audio Team",
+    eta: "Live now",
+    channel: "Audio tab",
+    artwork: "linear-gradient(135deg, #111827 0%, #14532d 40%, #22c55e 100%)",
+  },
+  {
+    id: "asset-9",
+    title: "Atelier delivery watch page",
+    format: "Long-form video",
+    description: "Thumbnail, companion podcast link, and discussion handoff scheduled to keep the watch tab busy.",
+    status: "Draft",
+    owner: "Atelier Journal",
+    eta: "Awaiting review",
+    channel: "Watch tab",
+    artwork: "linear-gradient(135deg, #111827 0%, #4c1d95 40%, #8b5cf6 100%)",
+  },
 ];
 
 function normalizeAsset(asset: DraftAsset, index: number): DraftAsset {
@@ -213,7 +246,7 @@ export function DashboardManager() {
             <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Loaded now</p>
-                <p className="mt-1 font-semibold text-zinc-950">6 cards</p>
+                <p className="mt-1 font-semibold text-zinc-950">{assets.length} cards</p>
               </div>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Prefetched next</p>

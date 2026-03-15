@@ -21,12 +21,12 @@ export default async function DiscussionPage({ params }: { params: Promise<{ slu
   const relatedThreads = getDiscussionCards()
     .filter((entry) => entry.slug !== slug)
     .slice(0, 4);
-  const linkedMedia = allMedia.filter((entry) => entry.slug === slug);
+  const linkedMedia = [content, ...allMedia.filter((entry) => entry.kind === content.kind && entry.slug !== slug)].slice(0, 4);
 
   return (
     <div className="min-h-screen bg-zinc-50">
       <SiteHeader session={session} />
-      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-4 py-6 sm:px-6 lg:px-10">
+      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-5 px-4 py-5 sm:px-6 lg:px-10">
         <section className="grid gap-5 xl:grid-cols-[minmax(0,1.16fr)_380px]">
           <Card>
             <CardHeader className="space-y-1.5">
@@ -62,7 +62,7 @@ export default async function DiscussionPage({ params }: { params: Promise<{ slu
           <Card>
             <CardHeader className="space-y-1.5">
               <CardTitle>Linked media</CardTitle>
-              <CardDescription>Keep the thread anchored to the actual media experience.</CardDescription>
+              <CardDescription>Keep the thread anchored to the active media lane with a fuller related stack.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-2.5">
               {linkedMedia.map((entry) => (
