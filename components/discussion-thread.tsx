@@ -65,25 +65,25 @@ function CommentBranch({
   depth?: number;
 }) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {comments
         .filter((comment) => comment.parentId === parentId)
         .map((comment) => (
-          <div className="space-y-4" key={comment.id}>
-            <div className="rounded-md border border-zinc-200 bg-white p-4">
+          <div className="space-y-3" key={comment.id}>
+            <div className="rounded-md border border-zinc-200 bg-white p-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <p className="text-sm font-semibold text-zinc-950">{comment.author}</p>
-                  <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">{formatTimestamp(comment.createdAt)}</p>
+                  <p className="mt-0.5 text-xs text-zinc-500">{formatTimestamp(comment.createdAt)}</p>
                 </div>
-                <Button onClick={() => onReply(comment.id)} size="sm" variant="ghost">
+                <Button className="h-7 px-2 text-xs" onClick={() => onReply(comment.id)} size="sm" variant="ghost">
                   Reply
                 </Button>
               </div>
-              <p className="mt-3 text-sm leading-7 text-zinc-700">{comment.body}</p>
+              <p className="mt-2 text-[13px] leading-6 text-zinc-700">{comment.body}</p>
             </div>
 
-            <div className={depth > 2 ? "ml-4" : "ml-5 border-l border-zinc-200 pl-4"}>
+            <div className="ml-4 border-l border-zinc-200 pl-3">
               <CommentBranch comments={comments} depth={depth + 1} onReply={onReply} parentId={comment.id} />
             </div>
           </div>
@@ -191,26 +191,33 @@ export function DiscussionThread({
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="space-y-1.5 pb-0">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <CardTitle>Discussion thread</CardTitle>
             <CardDescription>Threaded comments with live sync, clean density, and creator-owned moderation flow.</CardDescription>
           </div>
-          <div className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-600">
+          <div className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-600">
             {comments.length} comments · {totalReplies} replies · {onlineCount} live now
           </div>
         </div>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="space-y-3 rounded-md border border-zinc-200 bg-zinc-50 p-4">
+      <CardContent className="space-y-4">
+        <div className="space-y-2.5 rounded-md border border-zinc-200 bg-zinc-50 p-3">
           <p className="text-sm font-medium text-zinc-900">Commenting as {currentUser}</p>
           {replyingTo ? <p className="text-xs text-zinc-500">Replying to a thread branch.</p> : null}
-          <Textarea onChange={(event) => setDraft(event.target.value)} placeholder="Add context, answer questions, or post creator updates..." value={draft} />
+          <Textarea
+            className="min-h-24"
+            onChange={(event) => setDraft(event.target.value)}
+            placeholder="Add context, answer questions, or post creator updates..."
+            value={draft}
+          />
           <div className="flex flex-wrap gap-2">
-            <Button onClick={() => submit(replyingTo)}>Post comment</Button>
+            <Button className="h-9 px-3.5" onClick={() => submit(replyingTo)}>
+              Post comment
+            </Button>
             {replyingTo ? (
-              <Button onClick={() => setReplyingTo(null)} variant="outline">
+              <Button className="h-9 px-3.5" onClick={() => setReplyingTo(null)} variant="outline">
                 Cancel reply
               </Button>
             ) : null}

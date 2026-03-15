@@ -17,6 +17,14 @@ const authExamples = [
     title: "Members club studio",
     description: "For long-form YouTubers who want discussion, podcasts, and gated workflows in the same minimal shell.",
   },
+  {
+    title: "Track-weekend desk",
+    description: "For teams juggling reels, road films, audio recaps, and community follow-up after every event weekend.",
+  },
+  {
+    title: "Collector bulletin",
+    description: "For boutique channels building a fuller archive of delivery stories, ownership notes, and member commentary.",
+  },
 ];
 
 export default async function AuthPage({
@@ -30,8 +38,8 @@ export default async function AuthPage({
   return (
     <div className="min-h-screen bg-zinc-50">
       <SiteHeader session={session} />
-      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-4 py-8 sm:px-6 lg:px-10">
-        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_460px]">
+      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-4 py-5 sm:px-6 lg:px-10">
+        <section className="grid gap-5 xl:grid-cols-[minmax(0,1.1fr)_460px]">
           <Card>
             <CardHeader>
               <Badge className="w-fit">Authentication</Badge>
@@ -71,7 +79,7 @@ export default async function AuthPage({
             </CardContent>
           </Card>
 
-          <div className="grid gap-6">
+          <div className="grid gap-5">
             <Card>
               <CardHeader>
                 <CardTitle>Sign in</CardTitle>

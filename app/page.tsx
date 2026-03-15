@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCurrentSession } from "@/lib/auth";
 import {
+  allMedia,
   creatorProfile,
   getDiscussionCards,
   longFormContent,
@@ -46,15 +47,16 @@ function ContentGrid({
 
 export default async function Home() {
   const session = await getCurrentSession();
-  const discussionCards = getDiscussionCards().slice(0, 4);
+  const discussionCards = getDiscussionCards().slice(0, 6);
+  const visibleEntries = shortFormContent.length + longFormContent.length + podcastEpisodes.length + discussionCards.length;
 
   return (
     <div className="min-h-screen bg-zinc-50">
       <SiteHeader session={session} />
-      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-12 px-4 py-8 sm:px-6 lg:px-10">
-        <section className="grid gap-6 xl:grid-cols-[minmax(0,1.25fr)_420px]">
+      <main className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-4 py-4 sm:px-6 lg:px-10">
+        <section className="grid gap-5 xl:grid-cols-[minmax(0,1.25fr)_420px]">
           <Card>
-            <CardHeader className="space-y-5 border-b border-zinc-200 pb-5">
+            <CardHeader className="space-y-4 border-b border-zinc-200 pb-4">
               <Badge className="w-fit bg-white">Creator-owned platform demo</Badge>
               <div className="space-y-4">
                 <h1 className="max-w-5xl text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl xl:text-6xl">
@@ -79,13 +81,13 @@ export default async function Home() {
             <CardContent className="grid gap-4 pt-5 md:grid-cols-3">
               <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
                 <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Loaded on screen</p>
-                <p className="mt-2 text-2xl font-semibold text-zinc-950">14 entries</p>
+                <p className="mt-2 text-2xl font-semibold text-zinc-950">{visibleEntries} entries</p>
                 <p className="mt-2 text-sm leading-6 text-zinc-600">Shorts, videos, podcasts, and discussion routes all show richer seeded states immediately.</p>
               </div>
               <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
-                <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Prefetched next batch</p>
-                <p className="mt-2 text-2xl font-semibold text-zinc-950">10 entries</p>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">The shell now previews how pagination, preload rails, and infinite-style continuation could feel.</p>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Media library</p>
+                <p className="mt-2 text-2xl font-semibold text-zinc-950">{allMedia.length} entries</p>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">The fuller library now shows how pagination, preload rails, and continuation states could feel once the site is busy.</p>
               </div>
               <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
                 <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Surface style</p>
@@ -114,29 +116,29 @@ export default async function Home() {
         <ContentGrid
           description="Portrait-first delivery with vivid artwork, retention stats, and a next-batch mental model."
           items={shortFormContent}
-          note="Page 1 loaded · 4 clips live"
+          note={`Page 1 loaded · ${shortFormContent.length} clips live`}
           title="Short-form feed"
         />
         <ContentGrid
           description="Long-form films use the full screen width while leaving room for related rails, notes, and discussion routing."
           items={longFormContent}
-          note="2 more videos prewarmed"
+          note={`${longFormContent.length} films loaded`}
           title="Long-form features"
         />
         <ContentGrid
           description="Podcast pages now feel like a proper library instead of a single isolated embed."
           items={podcastEpisodes}
-          note="2 episodes visible"
+          note={`${podcastEpisodes.length} episodes visible`}
           title="Podcast episodes"
         />
         <ContentGrid
           description="Thread entry cards show how discussion can sit alongside rich media without feeling cluttered."
           items={discussionCards}
-          note="Live threads · flat board style"
+          note={`${discussionCards.length} live threads loaded`}
           title="Discussion feed"
         />
 
-        <section className="grid gap-6 xl:grid-cols-2">
+        <section className="grid gap-5 xl:grid-cols-2">
           <Card>
             <CardHeader>
               <CardTitle>Feed behavior</CardTitle>

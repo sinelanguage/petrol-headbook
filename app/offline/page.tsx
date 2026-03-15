@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function OfflinePage() {
   return (
-    <main className="min-h-screen bg-zinc-50 px-4 py-12 sm:px-6 lg:px-10">
+    <main className="min-h-screen bg-zinc-50 px-4 py-8 sm:px-6 lg:px-10">
       <div className="mx-auto grid w-full max-w-[1200px] gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="rounded-lg border border-zinc-200 bg-white p-8">
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-500">Offline mode</p>
