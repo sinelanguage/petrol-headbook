@@ -85,9 +85,9 @@ export default async function Home() {
                 <p className="mt-2 text-sm leading-6 text-zinc-600">Shorts, videos, podcasts, and discussion routes all show richer seeded states immediately.</p>
               </div>
               <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
-                <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Prefetched next batch</p>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Media library</p>
                 <p className="mt-2 text-2xl font-semibold text-zinc-950">{allMedia.length} entries</p>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">The shell now previews how pagination, preload rails, and infinite-style continuation could feel.</p>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">The fuller library now shows how pagination, preload rails, and continuation states could feel once the site is busy.</p>
               </div>
               <div className="rounded-md border border-zinc-200 bg-zinc-50 p-4">
                 <p className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">Surface style</p>

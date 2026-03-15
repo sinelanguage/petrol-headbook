@@ -17,11 +17,12 @@ export default async function DiscussionPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
+  const mediaKind = content.kind;
   const comments = discussionSeeds[slug] ?? [];
   const relatedThreads = getDiscussionCards()
     .filter((entry) => entry.slug !== slug)
     .slice(0, 4);
-  const linkedMedia = [content, ...allMedia.filter((entry) => entry.kind === content.kind && entry.slug !== slug)].slice(0, 4);
+  const linkedMedia = allMedia.filter((entry) => entry.kind === mediaKind && entry.slug !== slug).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-zinc-50">

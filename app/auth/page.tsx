@@ -54,7 +54,7 @@ export default async function AuthPage({
                 <p className="mt-2 text-sm leading-6 text-zinc-600">Use any email and password to create a local session and inspect the creator board with seeded hypercar content.</p>
               </div>
               {params?.message ? <p className="rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800">{params.message}</p> : null}
-               <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-2">
                 {authExamples.map((example) => (
                   <div className="rounded-md border border-zinc-200 bg-white p-4" key={example.title}>
                     <p className="text-sm font-semibold text-zinc-950">{example.title}</p>
@@ -79,7 +79,7 @@ export default async function AuthPage({
             </CardContent>
           </Card>
 
-           <div className="grid gap-5">
+          <div className="grid gap-5">
             <Card>
               <CardHeader>
                 <CardTitle>Sign in</CardTitle>

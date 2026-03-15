@@ -122,7 +122,7 @@ export const shortFormContent: MediaCard[] = [
   {
     kind: "short",
     slug: "huayra-dawn-warmup",
-    title: "Huayra dawn warmup",
+    title: "Huayra dawn warm-up",
     summary: "A sunrise pit-exit clip with crew chatter, warm tire haze, and fast-cut overlays built for a crowded short-form queue.",
     duration: "00:54",
     eyebrow: "Short-form",
