@@ -70,20 +70,20 @@ function CommentBranch({
         .filter((comment) => comment.parentId === parentId)
         .map((comment) => (
           <div className="space-y-4" key={comment.id}>
-            <div className="rounded-xl border border-zinc-200 bg-zinc-50/70 p-4">
+            <div className="rounded-md border border-zinc-200 bg-white p-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <p className="text-sm font-semibold text-zinc-950">{comment.author}</p>
-                  <p className="text-xs text-zinc-500">{formatTimestamp(comment.createdAt)}</p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">{formatTimestamp(comment.createdAt)}</p>
                 </div>
                 <Button onClick={() => onReply(comment.id)} size="sm" variant="ghost">
                   Reply
                 </Button>
               </div>
-              <p className="mt-3 text-sm leading-6 text-zinc-700">{comment.body}</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-700">{comment.body}</p>
             </div>
 
-            <div className={depth > 2 ? "ml-4" : "ml-6 border-l border-zinc-200 pl-4"}>
+            <div className={depth > 2 ? "ml-4" : "ml-5 border-l border-zinc-200 pl-4"}>
               <CommentBranch comments={comments} depth={depth + 1} onReply={onReply} parentId={comment.id} />
             </div>
           </div>
@@ -195,15 +195,15 @@ export function DiscussionThread({
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <CardTitle>Discussion thread</CardTitle>
-            <CardDescription>Nested comments with live sync across tabs and creator-owned moderation controls.</CardDescription>
+            <CardDescription>Threaded comments with live sync, clean density, and creator-owned moderation flow.</CardDescription>
           </div>
-          <div className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600">
+          <div className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs font-medium uppercase tracking-[0.16em] text-zinc-600">
             {comments.length} comments · {totalReplies} replies · {onlineCount} live now
           </div>
         </div>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="space-y-3 rounded-xl border border-zinc-200 p-4">
+        <div className="space-y-3 rounded-md border border-zinc-200 bg-zinc-50 p-4">
           <p className="text-sm font-medium text-zinc-900">Commenting as {currentUser}</p>
           {replyingTo ? <p className="text-xs text-zinc-500">Replying to a thread branch.</p> : null}
           <Textarea onChange={(event) => setDraft(event.target.value)} placeholder="Add context, answer questions, or post creator updates..." value={draft} />
