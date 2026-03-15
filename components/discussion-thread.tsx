@@ -159,12 +159,12 @@ export function DiscussionThread({
 
   const totalReplies = useMemo(() => comments.filter((comment) => comment.parentId).length, [comments]);
 
-  function publish(comment: Comment[]) {
-    window.localStorage.setItem(storageKey(slug), JSON.stringify(comment));
-    replace(slug, sortComments(comment));
+  function publish(comments: Comment[]) {
+    window.localStorage.setItem(storageKey(slug), JSON.stringify(comments));
+    replace(slug, sortComments(comments));
     if (typeof BroadcastChannel !== "undefined") {
       const channel = new BroadcastChannel(`petrol-headbook-${slug}`);
-      channel.postMessage({ type: "comments", comments: comment });
+      channel.postMessage({ type: "comments", comments });
       channel.close();
     }
   }
