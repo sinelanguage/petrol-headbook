@@ -71,7 +71,7 @@ function CommentBranch({
         .map((comment) => (
           <div className="space-y-3" key={comment.id}>
             <div className="rounded-md border border-zinc-200 bg-white p-3">
-              <div className="flex flex-wrap items-start justify-between gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <p className="text-sm font-semibold text-zinc-950">{comment.author}</p>
                   <p className="mt-0.5 text-xs text-zinc-500">{formatTimestamp(comment.createdAt)}</p>
@@ -83,7 +83,7 @@ function CommentBranch({
               <p className="mt-2 text-[13px] leading-6 text-zinc-700">{comment.body}</p>
             </div>
 
-            <div className={depth > 1 ? "ml-3 border-l border-zinc-200 pl-3" : "ml-4 border-l border-zinc-200 pl-3"}>
+            <div className="ml-4 border-l border-zinc-200 pl-3">
               <CommentBranch comments={comments} depth={depth + 1} onReply={onReply} parentId={comment.id} />
             </div>
           </div>
