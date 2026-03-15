@@ -13,6 +13,42 @@ A minimal creator-owned social platform demo built with Next.js, TypeScript, Tai
 - PWA manifest, service worker registration, and offline fallback page
 - Dockerfile and Docker Compose configuration for self-hosting
 
+## Route screenshots
+
+All screenshots below were refreshed after the system UI font update and captured at a 16:9 aspect ratio (1600×900).
+
+### Landing page (`/`)
+
+![Landing page screenshot](docs/screenshots/home-16x9.jpeg)
+
+### Auth (`/auth`)
+
+![Auth route screenshot](docs/screenshots/auth-16x9.jpeg)
+
+### Dashboard (`/dashboard`)
+
+![Dashboard route screenshot](docs/screenshots/dashboard-16x9.jpeg)
+
+### Discussion thread (`/discussions/launch-day-brief`)
+
+![Discussion route screenshot](docs/screenshots/discussions-16x9.jpeg)
+
+### Podcast (`/podcasts/garage-notes-12`)
+
+![Podcast route screenshot](docs/screenshots/podcast-16x9.jpeg)
+
+### Short-form video (`/shorts/launch-day-brief`)
+
+![Short-form route screenshot](docs/screenshots/shorts-16x9.jpeg)
+
+### Long-form video (`/videos/garage-tour-cut`)
+
+![Long-form route screenshot](docs/screenshots/videos-16x9.jpeg)
+
+### Offline (`/offline`)
+
+![Offline route screenshot](docs/screenshots/offline-16x9.jpeg)
+
 ## Local development
 
 ```bash
